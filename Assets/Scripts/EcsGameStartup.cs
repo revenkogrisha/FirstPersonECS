@@ -18,6 +18,10 @@ public sealed class EcsGameStartup : MonoBehaviour
         // Конвертация для работы UniLeo
         _systems.ConvertScene();
 
+        AddInjections();
+        AddOneFrames();
+        AddSystems();
+
         // Инициализация всех систем
         _systems.Init();
     }
@@ -41,4 +45,22 @@ public sealed class EcsGameStartup : MonoBehaviour
     }
 
     #endregion
+
+    private void AddInjections()
+    {
+
+    }
+
+    private void AddSystems()
+    {
+        _systems.
+            Add(new PlayerInputSystem()).
+            Add(new MovementSystem())
+            ;
+    }
+
+    private void AddOneFrames()
+    {
+
+    }
 }
