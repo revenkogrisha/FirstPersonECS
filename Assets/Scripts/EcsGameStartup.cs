@@ -7,6 +7,8 @@ public sealed class EcsGameStartup : MonoBehaviour
     private EcsWorld _world;
     private EcsSystems _systems;
 
+    #region MonoBehaviour
+
     private void Start()
     {
         // Инициализация классов
@@ -37,4 +39,6 @@ public sealed class EcsGameStartup : MonoBehaviour
         _world.Destroy();
         _world = null;
     }
+
+    #endregion
 }
