@@ -1,6 +1,8 @@
 using UnityEngine;
+using System;
 
-internal struct DirectionComponent 
+[Serializable]
+public struct DirectionComponent 
 {
     public Vector3 Direction;
 }
