@@ -3,7 +3,6 @@ using UnityEngine;
 
 public sealed class MovementSystem : IEcsRunSystem
 {
-    private readonly EcsWorld _world = null;
     private readonly EcsFilter<ModelComponent, MoveableComponent, DirectionComponent> _filter = null;
 
     public void Run()
@@ -22,10 +21,14 @@ public sealed class MovementSystem : IEcsRunSystem
             ref var speed = ref moveableComponent.Speed;
 
             // Логика передвижения
-            var rawDirection = (transform.right * direction.x) + (transform.forward * direction.z);
-
+            var rawDirection = GetDirection(direction, transform);
             Move(characterController, speed, rawDirection);
         }
+    }
+
+    private Vector3 GetDirection(Vector3 direction, Transform transform)
+    {
+        return (transform.right * direction.x) + (transform.forward * direction.z);
     }
 
     private void Move(CharacterController controller, float speed, Vector3 direction)
