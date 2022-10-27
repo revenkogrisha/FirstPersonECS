@@ -1,6 +1,6 @@
 using UnityEngine;
 
-internal struct MoveableComponent
+public struct MoveableComponent
 {
     public CharacterController CharacterController;
     public float Speed;
