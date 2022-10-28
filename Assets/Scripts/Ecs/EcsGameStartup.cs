@@ -51,16 +51,16 @@ public sealed class EcsGameStartup : MonoBehaviour
 
     }
 
-    private void AddSystems()
-    {
-        _systems.
-            Add(new PlayerInputSystem()).
-            Add(new MovementSystem())
-            ;
-    }
-
     private void AddOneFrames()
     {
 
+    }
+
+    private void AddSystems()
+    {
+        //  !Соблюдать правильный порядок
+        _systems.
+            Add(new PlayerInputSystem()).
+            Add(new MovementSystem());
     }
 }
