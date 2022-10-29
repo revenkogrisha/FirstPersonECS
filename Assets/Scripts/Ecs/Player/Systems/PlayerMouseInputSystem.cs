@@ -25,14 +25,11 @@ public class PlayerMouseInputSystem : IEcsRunSystem
     private void GetAxis()
     {
         _axisX += Input.GetAxis("Mouse X");
-        _axisX -= Input.GetAxis("Mouse Y");
-        Debug.Log(_axisX);
-        Debug.Log(_axisY);
+        _axisY -= Input.GetAxis("Mouse Y");
     }
 
     private void ClampAxis()
     {
-        //_axisX = Mathf.Clamp(_axisX, 1, 2);
-        //_axisY = Mathf.Clamp(_axisY, 1, 2);
+        _axisY = Mathf.Clamp(_axisY, -86, 75);
     }
 }
