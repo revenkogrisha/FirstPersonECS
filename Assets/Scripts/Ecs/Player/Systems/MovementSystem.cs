@@ -19,21 +19,17 @@ public sealed class MovementSystem : IEcsRunSystem
             ref var transform = ref modelComponent.ModelTransform;
             ref var characterController = ref moveableComponent.CharacterController;
             ref var speed = ref moveableComponent.Speed;
+            ref var velocity = ref moveableComponent.Velocity;
 
             // Логика передвижения
             var rawDirection = GetDirection(direction, transform);
-            Move(characterController, speed, rawDirection);
+            var movement = rawDirection * speed * Time.deltaTime;
+
+            characterController.Move(movement);
+            characterController.Move(velocity * Time.deltaTime);
         }
     }
 
-    private Vector3 GetDirection(Vector3 direction, Transform transform)
-    {
-        return (transform.right * direction.x) + (transform.forward * direction.z);
-    }
-
-    private void Move(CharacterController controller, float speed, Vector3 direction)
-    {
-        var movement = direction * speed * Time.deltaTime;
-        controller.Move(movement);
-    }
+    private Vector3 GetDirection(Vector3 direction, Transform transform) =>
+        (transform.right * direction.x) + (transform.forward * direction.z);
 }
