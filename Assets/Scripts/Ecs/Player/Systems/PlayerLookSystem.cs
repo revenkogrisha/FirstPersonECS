@@ -12,8 +12,7 @@ public class PlayerLookSystem : IEcsInitSystem, IEcsRunSystem
     {
         foreach (var i in _playerFilter)
         {
-
-            var entity = _filter.GetEntity(0);
+            var entity = _filter.GetEntity(i);
             var modelComponent = entity.Get<ModelComponent>();
             var transform = modelComponent.ModelTransform;
             _startRotation = transform.rotation;
