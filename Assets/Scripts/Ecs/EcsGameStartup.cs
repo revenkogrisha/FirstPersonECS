@@ -53,17 +53,21 @@ public sealed class EcsGameStartup : MonoBehaviour
 
     private void AddOneFrames()
     {
-
+        _systems.OneFrame<JumpEvent>();
     }
 
     private void AddSystems()
     {
         //  !Соблюдать правильный порядок
         _systems.
+            Add(new GravitySystem()).
+            Add(new GroundCheckSystem()).
+            Add(new PlayerJumpEventSender()).
             Add(new CursorLockSystem()).
             Add(new PlayerInputSystem()).
             Add(new PlayerMouseInputSystem()).
             Add(new MovementSystem()).
-            Add(new PlayerLookSystem());
+            Add(new PlayerLookSystem()).
+            Add(new PlayerJumpSystem());
     }
 }
