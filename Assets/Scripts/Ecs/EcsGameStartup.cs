@@ -60,7 +60,10 @@ public sealed class EcsGameStartup : MonoBehaviour
     {
         //  !Соблюдать правильный порядок
         _systems.
+            Add(new CursorLockSystem()).
             Add(new PlayerInputSystem()).
-            Add(new MovementSystem());
+            Add(new PlayerMouseInputSystem()).
+            Add(new MovementSystem()).
+            Add(new PlayerLookSystem());
     }
 }
