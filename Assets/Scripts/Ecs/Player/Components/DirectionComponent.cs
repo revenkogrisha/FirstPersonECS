@@ -4,5 +4,5 @@ using System;
 [Serializable]
 public struct DirectionComponent 
 {
-    public Vector3 Direction;
+    [HideInInspector] public Vector3 Direction;
 }

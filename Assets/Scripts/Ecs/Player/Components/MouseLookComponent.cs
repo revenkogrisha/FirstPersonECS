@@ -5,6 +5,6 @@ using UnityEngine;
 public struct MouseLookComponent
 {
     public Transform CameraTransform;
-    public Vector3 Direction;
-    public float Sensitivity;
+    [Range(0, 3)] public float Sensitivity;
+    [HideInInspector] public Vector3 Direction;
 }
