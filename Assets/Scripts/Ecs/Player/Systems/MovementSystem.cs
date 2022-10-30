@@ -24,10 +24,9 @@ public sealed class MovementSystem : IEcsRunSystem
             // Логика передвижения
             var rawDirection = GetDirection(direction, transform);
             var movement = rawDirection * speed * Time.deltaTime;
-            velocity *= Time.deltaTime;
 
             characterController.Move(movement);
-            characterController.Move(velocity);
+            characterController.Move(velocity * Time.deltaTime);
         }
     }
 
