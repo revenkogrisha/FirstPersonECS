@@ -6,6 +6,8 @@ public class PlayerJumpSystem : IEcsRunSystem
     private readonly EcsFilter<PlayerTag, GroundCheckComponent, JumpComponent, GravityComponent, JumpEvent>.
         Exclude<JumpBlockDuration> _filter = null;
 
+    private float _jumpBlockDuration = 3f;
+
     public void Run()
     {
         foreach (var i in _filter)
@@ -25,7 +27,7 @@ public class PlayerJumpSystem : IEcsRunSystem
 
             velocity.y = Mathf.Sqrt(force * -2 * gravity);
 
-            entity.Get<JumpBlockDuration>().Timer = 3f;
+            entity.Get<JumpBlockDuration>().Timer = _jumpBlockDuration;
         }
     }
 }
