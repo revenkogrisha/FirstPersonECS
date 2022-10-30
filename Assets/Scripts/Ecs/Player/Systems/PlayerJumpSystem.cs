@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class PlayerJumpSystem : IEcsRunSystem
 {
-    private readonly EcsFilter<PlayerTag, GroundCheckComponent, JumpComponent, GravityComponent, JumpEvent> _filter = null;
+    private readonly EcsFilter<PlayerTag, GroundCheckComponent, JumpComponent, GravityComponent, JumpEvent>.
+        Exclude<JumpBlockDuration> _filter = null;
 
     public void Run()
     {
@@ -23,6 +24,8 @@ public class PlayerJumpSystem : IEcsRunSystem
                 continue;
 
             velocity.y = Mathf.Sqrt(force * -2 * gravity);
+
+            entity.Get<JumpBlockDuration>().Timer = 3f;
         }
     }
 }

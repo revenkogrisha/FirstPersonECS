@@ -60,6 +60,7 @@ public sealed class EcsGameStartup : MonoBehaviour
     {
         //  !Соблюдать правильный порядок
         _systems.
+            Add(new JumpBlockSystem()).
             Add(new PlayerJumpEventSender()).
             Add(new GravitySystem()).
             Add(new GroundCheckSystem()).
