@@ -15,7 +15,6 @@ public class GroundCheckSystem : IEcsRunSystem
                 groundCheckComponent.GroundCheckSphere.position,
                 groundCheckComponent.GroundDistance,
                 groundCheckComponent.GroundMask);
-            Debug.Log(groundCheckComponent.IsGrounded);
         }
     }
 }
