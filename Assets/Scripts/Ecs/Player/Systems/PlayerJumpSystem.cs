@@ -27,7 +27,8 @@ public class PlayerJumpSystem : IEcsRunSystem
 
             velocity.y = Mathf.Sqrt(force * -2 * gravity);
 
-            entity.Get<JumpBlockDuration>().Timer = _jumpBlockDuration;
+            ref var blockDuration = ref entity.Get<JumpBlockDuration>();
+            blockDuration.Timer = _jumpBlockDuration;
         }
     }
 }
