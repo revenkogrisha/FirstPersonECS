@@ -144,6 +144,8 @@ GameObject:
   - component: {fileID: 20374549}
   - component: {fileID: 20374548}
   - component: {fileID: 20374547}
+  - component: {fileID: 20374551}
+  - component: {fileID: 20374550}
   m_Layer: 0
   m_Name: FPPlayerEcs
   m_TagString: Player
@@ -368,6 +370,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Gravity: {x: 0, y: 0, z: 0}
+--- !u!114 &20374550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20374535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2573df813ab969468412030c8a0443d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value:
+    Reference: {fileID: 20374551}
+--- !u!114 &20374551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20374535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 578f165d76c155543a5dae66e3c12c61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &525000991
 GameObject:
   m_ObjectHideFlags: 0
