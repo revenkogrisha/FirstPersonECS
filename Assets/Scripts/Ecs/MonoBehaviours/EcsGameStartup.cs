@@ -40,6 +40,7 @@ public sealed class EcsGameStartup : MonoBehaviour
 
         _systems.Destroy();
         _systems = null;
+
         _world.Destroy();
         _world = null;
     }
@@ -48,12 +49,14 @@ public sealed class EcsGameStartup : MonoBehaviour
 
     private void AddInjections()
     {
-
+        //  _systems.Inject(...);
+        //  Далее в системах просто обьявить поле этого класса, readonly, = null
     }
 
     private void AddOneFrames()
     {
         _systems.
+            OneFrame<PerformDeathEvent>().
             OneFrame<JumpEvent>().
             OneFrame<InitializeEntityRequest>();
     }
@@ -62,6 +65,7 @@ public sealed class EcsGameStartup : MonoBehaviour
     {
         //  !Соблюдать правильный порядок
         _systems.
+            Add(new DeathSystem()).
             Add(new DebugSystem()).
             Add(new JumpBlockSystem()).
             Add(new PlayerJumpEventSender()).
