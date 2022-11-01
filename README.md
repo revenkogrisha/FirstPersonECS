@@ -1,5 +1,5 @@
 # FirstPersonECS
 
-Status: working on
+Status: Finished!
 
-My educational project. I'm learning ECS patten using LeoECS framework by making FirstPerson movement
+My educational project. I'm learning ECS patten using LeoECS framework by making FirstPerson movement template
