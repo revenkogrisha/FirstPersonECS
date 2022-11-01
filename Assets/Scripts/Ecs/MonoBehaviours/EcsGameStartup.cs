@@ -53,7 +53,9 @@ public sealed class EcsGameStartup : MonoBehaviour
 
     private void AddOneFrames()
     {
-        _systems.OneFrame<JumpEvent>();
+        _systems.
+            OneFrame<JumpEvent>().
+            OneFrame<InitializeEntityRequest>();
     }
 
     private void AddSystems()
